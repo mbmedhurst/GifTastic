@@ -1,0 +1,35 @@
+body {
+    background-image: url(../images/soft_wallpaper_@2X.png);
+    font-family: 'Architects Daughter', cursive;
+}
+
+.container-btns {
+    border: 1px solid;
+    margin: 25px 50px;
+    padding: 5px;
+}
+
+.container-gifs {
+    margin: 25px 50px;
+    border: 1px solid;
+    text-align: center;
+
+}
+
+#displayGif {
+    border: 1px solid red;
+    text-align: center;
+    padding: 5px;
+}
+
+#createBtn {
+    border: 1px solid red;
+    text-align: center;
+    padding: 5px;
+}
+
+.inputText, .inputField, .submit {
+    padding: 5px;
+    font-size: 20px;
+}
+
