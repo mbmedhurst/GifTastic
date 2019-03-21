@@ -9,16 +9,18 @@ body {
     padding: 5px;
 }
 
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 .container-gifs {
     margin: 25px 50px;
     border: 1px solid;
-    text-align: center;
-
 }
 
 #displayGif {
     border: 1px solid red;
-    text-align: center;
     padding: 5px;
 }
 
@@ -31,5 +33,9 @@ body {
 .inputText, .inputField, .submit {
     padding: 5px;
     font-size: 20px;
+}
+
+button {
+    margin-top: 10px;
 }
 

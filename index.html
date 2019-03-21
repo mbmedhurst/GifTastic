@@ -13,17 +13,17 @@
 </head>
 
 <body>
-    <div class="container-btns" id="displayBtn">Display Buttons</div>
+    <div class="container-btns" id="displayBtn"></div>
     <div class="container-gifs">
         <div class="row">
-            <div class="col-8" id="displayGif">Display Gifs</div>
-            <div class="col-4" id="createBtn">
-                <div class="inputText">Add an animal:</div>
-                <div class="inputField">
-                    <input id="animalInput" type="text"></div>
-                <div class="submit">
-                    <button>Submit</button>
-                </div>
+            <div class="col-9" id="displayGif"></div>
+            <div class="col-3" id="createBtn">
+                <form>
+                    <label for="animal">Add an animal:</label><br>
+                    <input type="text" name="animal" id="animal"><br>
+                    <!-- button onclick should be to create buttons -->
+                    <button id="submit">Submit</button>
+                </form>
             </div>
         </div>
     </div>
