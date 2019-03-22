@@ -1,12 +1,26 @@
 body {
-    background-image: url(../images/soft_wallpaper_@2X.png);
+    /* background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%); */
+    background-image: url(../images/white_wall.png);
     font-family: 'Architects Daughter', cursive;
 }
 
+header {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 25px;
+    color: #006f21;
+}
+
 .container-btns {
-    border: 1px solid;
+    /* border: 1px solid; */
     margin: 25px 50px;
     padding: 5px;
+}
+
+.animalBtn {
+    background-color: #006f21;
+    color: white;
+    font-size: 18px;
 }
 
 .row {
@@ -16,26 +30,31 @@ body {
 
 .container-gifs {
     margin: 25px 50px;
-    border: 1px solid;
 }
 
 #displayGif {
-    border: 1px solid red;
+    border: 3px double #006f21;
     padding: 5px;
 }
 
 #createBtn {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     text-align: center;
     padding: 5px;
 }
 
-.inputText, .inputField, .submit {
-    padding: 5px;
-    font-size: 20px;
+label {
+    color: #006f21;
+    font-size: 18px;
 }
 
-button {
+input {
+    border: 1px solid #006f21;
+}
+
+#submit {
     margin-top: 10px;
+    background-color: #006f21;
+    color: white;
 }
 
