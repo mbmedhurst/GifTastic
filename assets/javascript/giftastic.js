@@ -2,6 +2,7 @@
 
 // array of animal names entered into the input field
 let animalArr = []
+let toggle = false
 
 
 // text entered into input field is pushed to animal array
@@ -42,11 +43,24 @@ const getGif = (animal) => {
         .then(({ data }) => {
             document.querySelector('#displayGif').innerHTML = ''
             data.forEach(gif => {
-                const url = gif.images.fixed_height.url
+                let {url:animated} = gif.images.fixed_height
+                let {url:still} = gif.images.fixed_height_still
                 let gifElem = document.createElement('img')
-                gifElem.setAttribute('src', url)
+                gifElem.setAttribute('src', `${animated}`)
+                gifElem.setAttribute('class', 'gifImg')
+                gifElem.setAttribute('alt', `${animal} Gif`)
+                gifElem.setAttribute('data-still', `${still}`)
+                gifElem.setAttribute('data-animated', `${animated}`)
                 document.querySelector('#displayGif').append(gifElem)
             })
         })
         .catch(e => console.log(e))
 }
+
+// event listener to toggle between still and animated gifs
+// copied heavily from class video
+document.querySelector('#displayGif').addEventListener('click', ({target}) => {
+    let {animated, still} = target.dataset
+    toggle = !toggle
+    target.setAttribute('src', toggle ? animated : still)
+})
