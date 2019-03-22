@@ -3,6 +3,7 @@
 // array of animal names entered into the input field
 let animalArr = []
 
+
 // text entered into input field is pushed to animal array
 document.querySelector('#submit').addEventListener('click', e => {
     // prevents page reload upon submit/enter
@@ -16,7 +17,8 @@ document.querySelector('#submit').addEventListener('click', e => {
     document.querySelector('#animal').value = ''
 })
 
-// most of this taken from the To Do List activity
+// main construction of this taken from the ToDo List activity
+// and then adapted from class video / giphy demos
 // buttons are rendered from user's input
 const renderButtons = _ => {
     document.querySelector('#displayBtn').innerHTML = ''
@@ -26,15 +28,16 @@ const renderButtons = _ => {
         animalArrElem.className = 'animalBtn'
         animalArrElem.setAttribute('data-animalArrLoc', i)
         document.querySelector('#displayBtn').addEventListener('click', function (e) {
-            console.log(e.target.dataset.animalarrloc)
+            let animal = animalArr[e.target.dataset.animalarrloc]
+            getGif(animal)
         })
         document.querySelector('#displayBtn').append(animalArrElem)
     })
 }
 
 // fetch request for animal gifs
-const getGif = () => {
-    fetch(`https://api.giphy.com/v1/gifs/search?api_key=2C01k7c92UOBlnlnBpB2y3P6B4Vdmxw7&q=${animal}&limit=10&rating=g`)
+const getGif = (animal) => {
+    fetch(`https://api.giphy.com/v1/gifs/search?api_key=2C01k7c92UOBlnlnBpB2y3P6B4Vdmxw7&q=${animal}&limit=25&rating=g`)
         .then(r => r.json())
         .then(({ data }) => {
             document.querySelector('#displayGif').innerHTML = ''
