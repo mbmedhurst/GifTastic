@@ -2,6 +2,8 @@
 
 // array of animal names entered into the input field
 let animalArr = []
+
+// toggle variable for still/animated gifs
 let toggle = false
 
 
@@ -10,12 +12,12 @@ document.querySelector('#submit').addEventListener('click', e => {
     // prevents page reload upon submit/enter
     e.preventDefault()
     // logic to prevent empty submission
-    if (document.querySelector('#animal').value.length >= 1){
-        animalArr.push(document.querySelector('#animal').value)
+    if (document.querySelector('#animalInput').value.length >= 1){
+        animalArr.push(document.querySelector('#animalInput').value)
         renderButtons()
     }
     // input field is cleared upon submit/enter
-    document.querySelector('#animal').value = ''
+    document.querySelector('#animalInput').value = ''
 })
 
 // main construction of this taken from the ToDo List activity
