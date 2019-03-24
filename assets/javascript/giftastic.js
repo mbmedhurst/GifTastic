@@ -14,7 +14,7 @@ document.querySelector('#submit').addEventListener('click', e => {
     // logic to prevent empty and duplicate submissions
     let submitValue = document.querySelector('#animalInput').value
     if (submitValue.length >= 1 && !animalArr.includes(submitValue)) {
-        animalArr.push(document.querySelector('#animalInput').value)
+        animalArr.push(submitValue)
         renderButtons()
     }
     // input field is cleared upon submit/enter
