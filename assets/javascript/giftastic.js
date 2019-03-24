@@ -11,8 +11,9 @@ let toggle = false
 document.querySelector('#submit').addEventListener('click', e => {
     // prevents page reload upon submit/enter
     e.preventDefault()
-    // logic to prevent empty submission
-    if (document.querySelector('#animalInput').value.length >= 1){
+    // logic to prevent empty and duplicate submissions
+    let submitValue = document.querySelector('#animalInput').value
+    if (submitValue.length >= 1 && !animalArr.includes(submitValue)) {
         animalArr.push(document.querySelector('#animalInput').value)
         renderButtons()
     }
@@ -40,7 +41,7 @@ const renderButtons = _ => {
 
 // fetch request for animal gifs
 const getGif = (animal) => {
-    fetch(`https://api.giphy.com/v1/gifs/search?api_key=2C01k7c92UOBlnlnBpB2y3P6B4Vdmxw7&q=${animal}&limit=25&rating=g`)
+    fetch(`https://api.giphy.com/v1/gifs/search?api_key=2C01k7c92UOBlnlnBpB2y3P6B4Vdmxw7&q=${animal}&limit=10&rating=g`)
         .then(r => r.json())
         .then(({ data }) => {
             document.querySelector('#displayGif').innerHTML = ''
@@ -48,7 +49,7 @@ const getGif = (animal) => {
                 let {url:animated} = gif.images.fixed_height
                 let {url:still} = gif.images.fixed_height_still
                 let gifElem = document.createElement('img')
-                gifElem.setAttribute('src', `${animated}`)
+                gifElem.setAttribute('src', `${still}`)
                 gifElem.setAttribute('class', 'gifImg')
                 gifElem.setAttribute('alt', `${animal} Gif`)
                 gifElem.setAttribute('data-still', `${still}`)
