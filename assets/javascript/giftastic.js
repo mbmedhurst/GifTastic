@@ -46,8 +46,8 @@ const getGif = (animal) => {
         .then(({ data }) => {
             document.querySelector('#displayGif').innerHTML = ''
             data.forEach(gif => {
-                let {url:animated} = gif.images.fixed_height
-                let {url:still} = gif.images.fixed_height_still
+                let { url: animated } = gif.images.fixed_height
+                let { url: still } = gif.images.fixed_height_still
                 let gifElem = document.createElement('img')
                 gifElem.setAttribute('src', `${still}`)
                 gifElem.setAttribute('class', 'gifImg')
@@ -62,8 +62,8 @@ const getGif = (animal) => {
 
 // event listener to toggle between still and animated gifs
 // copied heavily from class video
-document.querySelector('#displayGif').addEventListener('click', ({target}) => {
-    let {animated, still} = target.dataset
+document.querySelector('#displayGif').addEventListener('click', ({ target }) => {
+    let { animated, still } = target.dataset
     toggle = !toggle
     target.setAttribute('src', toggle ? animated : still)
 })
